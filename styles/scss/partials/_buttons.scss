@@ -1,0 +1,45 @@
+//**
+// Project Buttons
+//**
+
+%btn {
+  display: inline-block;
+  text-decoration: none;
+  color: $primary-color;
+  font-size: 0.9em;
+  line-height: 34px;
+  font-weight: normal;
+  padding: 3px 30px;
+  border: 0;
+  margin: 6px 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  @include transition(all, 0.15s, ease-in-out);
+  @include border-radius(20px);
+
+  @include mobile {
+    width: auto;
+    text-align: left;
+  }
+
+  &:hover, &:focus {
+    color: $primary-color;
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+// Primary Button Example
+
+.primary-btn {
+  @extend %btn; // load the btn defaults
+  border: 1px solid $primary-color;
+
+  &:hover,
+  &:focus {
+    background: darken($primary-color, 4%);
+    border: 1px solid darken($primary-color, 4%);
+    color: #fff;
+  }
+}

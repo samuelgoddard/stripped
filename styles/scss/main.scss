@@ -1,0 +1,17 @@
+/*!
+ * This is the main stylesheet, @import all your partials / modules and anything else that takes your fancy
+ */
+
+// Config files
+@import "partials/config";
+
+// Partials files
+@import "partials/mixins";
+@import "partials/grid";
+@import "partials/base";
+@import "partials/buttons";
+@import "partials/type";
+
+// Modules
+@import "modules/header";
+@import "modules/footer";
