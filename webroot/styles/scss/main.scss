@@ -1,0 +1,14 @@
+/*!
+ * This is the main stylesheet, @import all your partials / modules and anything else that takes your fancy
+ */
+
+// Config files
+@import "modules/config";
+
+// Partials files
+@import "partials/reset";
+@import "partials/grid";
+@import "partials/colors";
+@import "partials/buttons";
+@import "partials/typography";
+@import "partials/padding";

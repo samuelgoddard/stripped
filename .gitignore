@@ -36,5 +36,4 @@
 ehthumbs.db
 Thumbs.db
 
-
-.sass-cache/
+.scss-cache

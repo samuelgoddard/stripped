@@ -1,0 +1,54 @@
+//**
+// Global Padding Modifiers
+//**
+
+.p--reset {
+  margin: 0;
+  padding: 0;
+}
+
+// Universal Padding
+@each $fontsize, $size in $fontsizes {
+ .p--#{$fontsize} {
+   padding: $size;
+ }
+}
+
+// Universal Margin
+@each $fontsize, $size in $fontsizes {
+ .m--#{$fontsize} {
+   margin: $size;
+ }
+}
+
+// Top Padding
+@each $fontsize, $size in $fontsizes {
+ .p-top--#{$fontsize} {
+   padding-top: $size;
+ }
+}
+
+// Top Margin
+@each $fontsize, $size in $fontsizes {
+ .m-top--#{$fontsize} {
+   margin-top: $size;
+ }
+}
+
+// Bottom Padding
+@each $fontsize, $size in $fontsizes {
+ .p-bottom--#{$fontsize} {
+   padding-bottom: $size;
+ }
+}
+
+// Bottom Margin
+@each $fontsize, $size in $fontsizes {
+ .m-bottom--#{$fontsize} {
+   margin-bottom: $size;
+ }
+}
+
+.d--block {
+  display: block;
+}

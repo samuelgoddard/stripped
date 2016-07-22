@@ -1,0 +1,23 @@
+//**
+// SASS Maps
+//**
+
+// Colors Map
+$colors: (
+  project-primary: $primary-color,
+  project-grey: $project-grey,
+  project-black: $project-black,
+  project-white: $project-white
+);
+
+// Font Sizes Map
+$fontsizes: (
+  xxl: $f-xxl,
+  xl: $f-xl,
+  l: $f-l,
+  m: $f-m,
+  base: $f-base,
+  s: $f-s,
+  xs: $f-xs,
+  xxs: $f-xxs
+);

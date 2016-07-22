@@ -1,0 +1,19 @@
+//**
+// Color Modifiers
+//**
+
+// Modifiers
+
+// Create 'color' modifier classes based on map in config
+@each $color, $hex in $colors {
+ .c--#{$color} {
+   color: $hex;
+ }
+}
+
+// Create 'background-color' modifier classes based on map in config
+@each $color, $hex in $colors {
+ .bg--#{$color} {
+   background-color: $hex;
+ }
+}

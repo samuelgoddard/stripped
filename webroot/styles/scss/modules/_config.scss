@@ -1,0 +1,36 @@
+//**
+// Global Settings
+//**
+
+// Global Font Imports
+@import url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700);
+
+// Global Responsive Breakpoints
+$mobile-break: 30rem;
+$tablet-break: 45rem;
+$desktop-break: 60rem;
+$large-desktop-break: 73.13rem;
+
+// Global Color Variables (need to add / remove values to map _maps.scss)
+$primary-color: #d33c2c;
+$project-grey: #eee;
+$project-black: #000;
+$project-white: #fff;
+
+// Global Sizing Variables (need to add / remove values to map _maps.scss)
+$f-xxl: 2.625rem;
+$f-xl: 2.25rem;
+$f-l: 1.575rem;
+$f-m: 1.225rem;
+$f-base: 1rem;
+$f-s: 1.125rem;
+$f-xs: 0.875rem;
+$f-xxs: 0.75rem;
+
+// Global Font Variables
+$helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$pt-serif: "PT Serif", serif;
+
+// Include Specific Modules
+@import "mixins";
+@import "maps";

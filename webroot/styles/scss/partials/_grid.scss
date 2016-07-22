@@ -1,0 +1,247 @@
+//**
+// Grid System
+//**
+
+// Global Container
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:  1.55rem;
+  padding-right: 1.55rem;
+  clear: both;
+
+  @media (min-width: $tablet-break + 1.55rem) {
+    width: $tablet-break;
+  }
+  @media (min-width: $desktop-break + 1.55rem) {
+    width: $desktop-break;
+  }
+  @media (min-width: $large-desktop-break + 1.55rem) {
+    width: $large-desktop-break;
+  }
+}
+
+
+/* $. Core
+\*----------------------------------------------------------------*/
+
+// Main grid container which holds all elements
+$gr-grid: "g" !default;
+
+// Individual grid item/cell/unit/whatever you want to call it.
+$gr-item: "g__item" !default;
+
+// The class chained onto the same element as above which controls the sizing.
+$gr-item-unit: "g__item" !default;
+
+
+/* $. Modifiers
+\*----------------------------------------------------------------*/
+
+// Increase gutter size
+$gr-grid-spaced:  "g--spaced" !default;
+
+// Remove all gutters
+$gr-grid-compact: "g--compact" !default;
+
+// Reverse direction of the grid. i.e. direction: rtl;
+$gr-grid-reversed: "g--reversed" !default;
+
+// Centers the entire Grid, which grid items will inherit.
+$gr-grid-centered: "g--centered" !default;
+
+// Center an individual item, rather than all items.
+$gr-item-centered: "g__item--centered" !default;
+
+
+/* $. Sizing
+\*----------------------------------------------------------------*/
+
+// The size between each grid item. Can use any CSS unit of measurement.
+$gr-gutter: 1em !default;
+
+
+/* $. Grid Alignment
+\*----------------------------------------------------------------*/
+
+// Initial direction of the $gr-grid
+$gr-grid-direction: inherit !default;
+
+// Initial horizontal alignment of the $gr-grid.
+$gr-grid-align-x: inherit !default;
+
+
+
+/* $. Item Alignment
+\*----------------------------------------------------------------*/
+
+// Initial direction of the $gr-item
+$gr-item-direction: inherit !default;
+
+// Initial horizontal alignment of the $gr-item
+$gr-item-align-x: inherit !default;
+
+// Initial vertical alignment of the $gr-item
+$gr-item-align-y: top !default;
+
+
+
+/* $. Spacing
+\*----------------------------------------------------------------*/
+
+// Increase gutter size
+.#{$gr-grid-spaced} {
+    margin: 0 0 0 #{- ($gr-gutter*2)};
+
+    > .#{$gr-item} {
+        padding: 0 0 0 ($gr-gutter*2);
+    }
+}
+
+// Remove all gutters
+.#{$gr-grid-compact} {
+    margin: 0;
+
+    > .#{$gr-item} {
+        padding: 0;
+    }
+}
+
+
+/* $. Directional
+\*----------------------------------------------------------------*/
+
+// Reverse direction of the grid. i.e. direction: rtl;
+.#{$gr-grid-reversed} {
+    @if($gr-grid-direction == "rtl") {
+        direction: ltr;
+    }
+    @else {
+        direction: rtl;
+    }
+
+    &:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .#{$gr-item} {
+        @if($gr-grid-direction == "rtl") {
+            margin: 0 -.25em 0 0;
+        }
+        @else {
+            margin: 0 0 0 -.25em;
+        }
+    }
+}
+
+
+/* $. Alignment
+\*----------------------------------------------------------------*/
+
+// Centers the entire Grid, which grid items will inherit.
+.#{$gr-grid-centered} {
+    text-align: center;
+}
+
+// Center an individual item, rather than all items.
+.#{$gr-item-centered} {
+    display: block;
+    margin: 0 auto;
+}
+
+
+@mixin groot($cols, $suffix: "") {
+
+    /**
+     * Loop through $cols
+     */
+    @each $col in $cols {
+
+        /**
+         * Create a loop ending with 1 less than the $col parameter
+         */
+        @for $i from 1 through $col {
+
+            /**
+             * Get the length of the $suffix parameter
+             */
+            $suffixL: str-length($suffix);
+
+            /**
+             * If a breakpoint has been declared, declare the class
+             * for that breakpoint.
+             */
+            @if($suffix != "" and $suffixL >= 1 ) {
+
+                /**
+                 * Declare a class based on $col number AND breakpoint
+                 */
+                .#{$gr-item-unit}--#{$i}-#{$col}-#{$suffix} {
+                    width: percentage($i / $col);
+                }
+            } @else {
+
+                /**
+                 * Declare a class based on $col number
+                 */
+                .#{$gr-item-unit}--#{$i}-#{$col} {
+                    width: percentage($i / $col);
+                }
+            }
+
+        }
+    }
+}
+
+
+
+/* $. Container
+\*----------------------------------------------------------------*/
+
+// Main grid container which holds all elements
+.#{$gr-grid} {
+    box-sizing: border-box;
+    display: block;
+    padding: 0;
+    margin: 0 0 0 #{- $gr-gutter};
+    direction: $gr-grid-direction;
+    text-align: $gr-grid-align-x;
+}
+
+
+/* $. Item
+\*----------------------------------------------------------------*/
+
+// Individual grid item/cell/unit/whatever you want to call it.
+.#{$gr-item} {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    margin: 0 -.25em 0 0;
+    padding: 0 0 0 $gr-gutter;
+    direction: $gr-item-direction;
+    text-align: $gr-item-align-x;
+    vertical-align: $gr-item-align-y;
+}
+
+// Init Grid
+
+@include groot(1 12);
+
+// Tablet Grid
+@include tablet {
+  @include groot(1 12, 'tablet');
+}
+
+// Desktop Grid
+@include desktop {
+  @include groot(1 12, 'desktop');
+}
+
+// Large Desktop Grid
+@include large-desktop {
+  @include groot(1 12, 'large-desktop');
+}
