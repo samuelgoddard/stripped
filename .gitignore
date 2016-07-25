@@ -37,4 +37,4 @@ ehthumbs.db
 Thumbs.db
 
 *.scss-cache
-*node_modules
+node_modules
