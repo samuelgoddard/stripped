@@ -1,0 +1,33 @@
+//**
+// Global Display Modifiers
+//**
+
+//Globals
+
+.d--block {
+  display: block;
+}
+
+.d--inline {
+  display: inline;
+}
+
+.d--iblock {
+  display: inline-block;
+}
+
+// Lists
+
+ul {
+  &.l--inline {
+    > li {
+      display: inline;
+    }
+  }
+
+  &.l--block {
+    > li {
+      display: block;
+    }
+  }
+}

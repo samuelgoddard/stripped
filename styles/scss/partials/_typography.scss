@@ -53,24 +53,6 @@ a {
   }
 }
 
-// Lists
-
-ul {
-  list-style: none;
-
-  &.l--inline {
-    > li {
-      display: inline;
-    }
-  }
-
-  &.l--block {
-    > li {
-      display: block;
-    }
-  }
-}
-
 // Modifiers
 
 // Create modifier classes based on map in config
